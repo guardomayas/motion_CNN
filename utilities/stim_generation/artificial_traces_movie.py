@@ -51,12 +51,20 @@ class CorrelationVelDataset(Dataset):
 
         # Open once. This is convenient for now.
         # If dataloader workers later complain, we can switch to lazy file opening per worker.
-        self._h5 = h5py.File(self.file, "r")
+        with h5py.File(self.file, "r") as h5:
+            self.frozen_images = (
+                np.array(h5["frozenImages"])
+                .transpose((0, 2, 1))
+                .astype(np.float32)
+            )
 
-        # Load arrays into memory. Images are not huge enough to be crazy here, and the
-        # reconstructed movies are the expensive part.
-        self.frozen_images = np.array(self._h5["frozenImages"]).transpose((0, 2, 1)).astype(np.float32)
-        self.running_images = np.array(self._h5["runningImages"]).transpose((0, 2, 1)).astype(np.float32)
+            self.running_images = (
+                np.array(h5["runningImages"])
+                .transpose((0, 2, 1))
+                .astype(np.float32)
+            )
+
+        self._h5 = None
         # Global normalization
         if self.normalize_images:
             global_min = min(self.frozen_images.min(), self.running_images.min())
