@@ -1,0 +1,10 @@
+numpy
+scipy
+matplotlib
+jupyter
+ipykernel
+torch
+pandas
+h5py
+seaborn
+tqdm

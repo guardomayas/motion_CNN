@@ -1,0 +1,23 @@
+cat > .gitignore <<'EOF'
+# data
+/mouse_scenes/
+/primate_scenes/
+
+# generated outputs
+/saved_movies/
+/saved_plots/
+
+# Python/Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# environments
+.env
+.venv/
+venv/
+env/
+
+# Windows/WSL metadata
+*:Zone.Identifier
+EOF

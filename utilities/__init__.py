@@ -1,0 +1,3 @@
+from .stim_generation.fixation_movie import FixationMovieDataset
+from .stim_generation.artificial_traces_movie import CorrelationVelDataset
+from .plots.stim_plots import show_batch_frames, show_one_sample_summary, sample_animation
