@@ -384,7 +384,7 @@ class CorrelationVelDataset(Dataset):
             "fix_pos": torch.from_numpy(pos).to(dtype=self.dtype),
             "fix_vel": torch.from_numpy(vel).to(dtype=self.dtype),
 
-            "scene_pos": torch.from_numpy(-pos).to(dtype=self.dtype),
+            "scene_pos": torch.from_numpy(pos).to(dtype=self.dtype),
             "scene_vel": torch.from_numpy(vel).to(dtype=self.dtype),
             "fixations": torch.from_numpy(fixations).to(dtype=self.dtype),
             "source": meta["source"],

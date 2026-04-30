@@ -2,6 +2,7 @@ cat > .gitignore <<'EOF'
 # data
 /mouse_scenes/
 /primate_scenes/
+/cache
 
 # generated outputs
 /saved_movies/
