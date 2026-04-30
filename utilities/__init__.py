@@ -1,3 +1,5 @@
 from .stim_generation.fixation_movie import FixationMovieDataset
 from .stim_generation.artificial_traces_movie import CorrelationVelDataset
+from .stim_generation.dataset_utils import split_by_source_image, prerender_dataset_to_single_pt, TensorMovieDataset
+from .training.loss import compute_velocity_stats, direct_velocity_loss
 from .plots.stim_plots import show_batch_frames, show_one_sample_summary, sample_animation
